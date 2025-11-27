@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Mannan - CV & GPT Chatbot</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body{margin:0;padding:0;font-family:'Roboto',sans-serif;background:#0f111a;color:#fff;}
+section{padding:50px 20px;}
+h1,h2,h3{margin-bottom:15px;}
+.skill-card, .experience-card, .project-list li, .highlight, .contact a{margin-bottom:10px;}
+.experience-card{background:#1e1f2d;padding:20px;border-radius:10px;margin-bottom:20px;opacity:0;transform:translateY(20px);animation:fadeUp 0.8s forwards;}
+@keyframes fadeUp {to{opacity:1;transform:translateY(0);}}
+.project-list li{background:#1e1f2d;padding:10px;border-radius:5px;margin-bottom:10px;}
+.skill-bar{background:#1e1f2d;border-radius:20px;overflow:hidden;margin-bottom:10px;}
+.skill-fill{height:20px;width:0%;background:#fffa65;text-align:right;line-height:20px;padding-right:5px;color:#000;font-weight:bold;border-radius:20px;transition: width 2s;}
+#chatbot{position:fixed;bottom:20px;right:20px;width:300px;background:#1e1f2d;border-radius:10px;overflow:hidden;box-shadow:0 0 10px rgba(0,0,0,0.5);}
+#chatbot-header{background:#111;padding:10px;cursor:pointer;}
+#chatbot-body{max-height:300px;overflow-y:auto;padding:10px;}
+#chatbot-input{width:100%;border:none;outline:none;padding:10px;background:#111;color:#fff;}
+.bot-message{padding:5px;background:#fffa65;color:#000;margin:5px;border-radius:5px;}
+.user-message{padding:5px;background:#1e1f2d;color:#fff;margin:5px;border-radius:5px;text-align:right;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Abdul Mannan</h1>
+  <h2>Cybersecurity & Full-Stack Developer</h2>
+</header>
+
+<section id="skills">
+  <h3>Skills</h3>
+  <div class="skill-card">Node.js<div class="skill-bar"><div class="skill-fill" data-width="90%">90%</div></div></div>
+  <div class="skill-card">React<div class="skill-bar"><div class="skill-fill" data-width="85%">85%</div></div></div>
+  <div class="skill-card">Angular<div class="skill-bar"><div class="skill-fill" data-width="80%">80%</div></div></div>
+  <div class="skill-card">AWS<div class="skill-bar"><div class="skill-fill" data-width="75%">75%</div></div></div>
+  <div class="skill-card">Azure<div class="skill-bar"><div class="skill-fill" data-width="70%">70%</div></div></div>
+  <div class="skill-card">GCP<div class="skill-bar"><div class="skill-fill" data-width="70%">70%</div></div></div>
+  <div class="skill-card">Docker & Kubernetes<div class="skill-bar"><div class="skill-fill" data-width="80%">80%</div></div></div>
+  <div class="skill-card">CI/CD & DevOps<div class="skill-bar"><div class="skill-fill" data-width="75%">75%</div></div></div>
+  <div class="skill-card">Cloud Security & Ethical Hacking<div class="skill-bar"><div class="skill-fill" data-width="70%">70%</div></div></div>
+</section>
+
+<section id="experience">
+  <h3>Professional Experience</h3>
+
+  <div class="experience-card">
+    <h4>Systems Limited | Full-Stack Developer | Jan 2017 – Dec 2017</h4>
+    <ul>
+      <li>Developed and maintained dynamic web applications using React.js and Node.js for enterprise clients.</li>
+      <li>Integrated APIs and optimized backend services, improving system response time by 20%.</li>
+      <li>Deployed applications on AWS, configured cloud storage, and implemented auto-scaling for high-traffic scenarios.</li>
+      <li>Collaborated with QA and design teams to enhance UI/UX, resulting in a 15% increase in user engagement.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>NetSol Technologies | Backend Developer | Jan 2018 – Dec 2018</h4>
+    <ul>
+      <li>Designed and implemented secure backend systems for fintech solutions using Node.js and PostgreSQL.</li>
+      <li>Conducted code reviews and implemented authentication and encryption protocols, reducing security vulnerabilities.</li>
+      <li>Built RESTful APIs for mobile and web apps, enabling seamless integration with third-party services.</li>
+      <li>Participated in agile development cycles and delivered scalable, production-ready features for international clients.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>10Pearls | Cloud Engineer | Jan 2019 – Dec 2019</h4>
+    <ul>
+      <li>Deployed and maintained cloud-native applications on AWS and Azure using serverless architecture and containers.</li>
+      <li>Implemented CI/CD pipelines with Jenkins and GitHub Actions, reducing deployment time by 40%.</li>
+      <li>Monitored and optimized cloud resources, reducing infrastructure costs by 15%.</li>
+      <li>Collaborated with cross-functional teams to deliver secure, scalable SaaS applications for global clients.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>Arbisoft | Frontend & UI/UX Developer | Jan 2020 – Dec 2020</h4>
+    <ul>
+      <li>Built responsive web interfaces using React.js and Angular, improving user experience for multiple client projects.</li>
+      <li>Integrated front-end with backend APIs to create seamless web applications.</li>
+      <li>Optimized website performance, achieving a 25% faster load time.</li>
+      <li>Worked closely with designers to implement modern UI/UX principles and accessibility standards.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>Tkxel | Full-Stack Developer | Jan 2021 – Dec 2021</h4>
+    <ul>
+      <li>Developed end-to-end solutions for web and mobile applications using Node.js, React, and MongoDB.</li>
+      <li>Designed microservices architecture and containerized services with Docker and Kubernetes.</li>
+      <li>Implemented security best practices and data protection protocols for client applications.</li>
+      <li>Improved application scalability and reliability, handling a 30% increase in concurrent users.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>Rackspace Technology | Cloud & DevOps Engineer | Jan 2022 – Dec 2022</h4>
+    <ul>
+      <li>Managed cloud infrastructure for enterprise clients on AWS, Azure, and GCP.</li>
+      <li>Automated deployment processes using Terraform and Kubernetes, reducing manual interventions.</li>
+      <li>Conducted monitoring, logging, and incident response to ensure 99.9% uptime.</li>
+      <li>Collaborated with global teams to optimize cloud architecture and security.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>Wiz | Cloud Security Analyst | Jan 2023 – Dec 2023</h4>
+    <ul>
+      <li>Performed security assessments and penetration tests on cloud infrastructures.</li>
+      <li>Implemented cloud security controls, IAM policies, and encryption standards to mitigate risks.</li>
+      <li>Identified and resolved vulnerabilities, improving overall system security posture by 30%.</li>
+      <li>Provided recommendations to development teams for secure coding and deployment practices.</li>
+    </ul>
+  </div>
+
+  <div class="experience-card">
+    <h4>Avanade | DevSecOps Engineer | Jan 2024 – Dec 2024</h4>
+    <ul>
+      <li>Designed and implemented CI/CD pipelines integrating security checks and automated testing.</li>
+      <li>Managed hybrid cloud environments ensuring compliance with enterprise security policies.</li>
+      <li>Conducted threat modeling and vulnerability assessments to secure production systems.</li>
+      <li>Streamlined development, deployment, and security processes across multiple global client projects.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects">
+  <h3>Projects</h3>
+  <ul class="project-list">
+    <li>Full‑Stack Web Developer (Web Apps / SaaS / E‑commerce / Dynamic Sites)</li>
+    <li>Backend / API / Microservices Developer</li>
+    <li>Cloud‑Native / Cloud‑First Development & Deployment Projects</li>
+    <li>DevOps / Infrastructure + Automation + CI‑CD / Deployment + Cloud + DevOps</li>
+    <li>Cloud + Infrastructure & Cloud Operations / Cloud Engineer</li>
+    <li>Cloud‑Security / Secure Cloud Infrastructure Projects</li>
+    <li>Cybersecurity / Ethical Hacking / Security Audits / Secure Web & App Projects</li>
+    <li>Full‑Stack + Cloud + DevOps (Combined “All‑in‑One” Roles)</li>
+    <li>Frontend + Modern JS/Frameworks + UX‑Oriented Web Projects</li>
+    <li>Remote / Freelance Projects (Web, Cloud, Security)</li>
+    <li>Startup‑Oriented Projects (MVPs, MVP + Cloud + Maintenance + Scaling)</li>
+    <li>Enterprise‑Level Web / Web‑App Projects (Large Systems, Data‑Heavy, High-Traffic)</li>
+    <li>API / Backend for Mobile + Web (Hybrid Projects)</li>
+    <li>Security + Compliance + Data Protection / GDPR-/Regulation-Aware Web & Cloud Projects</li>
+    <li>Cloud Migration / Legacy-to-Cloud Migration Projects</li>
+    <li>Maintenance + DevOps + Security + Cloud Ops for Existing Apps</li>
+    <li>Full‑Stack + Data + (Optional) ML/AI Integration Projects</li>
+    <li>DevOps / Cloud + Containerization / Docker / Kubernetes / Microservices Projects</li>
+    <li>Cloud + Multi-cloud / Hybrid-cloud / Cloud-Architecture Projects</li>
+    <li>Security + Cloud + DevOps (DevSecOps) Projects</li>
+  </ul>
+</section>
+
+<section id="condensed">
+  <h3>Condensed Recruiter-Friendly Version</h3>
+  <ul>
+    <li><span class="highlight">8 years experience</span>: Full-Stack, Cloud, DevOps, Cybersecurity</li>
+    <li><span class="highlight">Top Skills</span>: Node.js, React, Angular, AWS, Azure, GCP, Docker, Kubernetes, CI/CD, Cloud Security</li>
+    <li><span class="highlight">Projects Delivered</span>: 50+ high-demand projects including enterprise SaaS, cloud deployments, microservices, and secure web applications</li>
+    <li><span class="highlight">Achievements</span>: Improved performance, uptime, scalability, and security by 20–40% across multiple global clients</li>
+  </ul>
+</section>
+
+<div id="chatbot">
+  <div id="chatbot-header"><i class="fa-solid fa-robot"></i> Chat with me</div>
+  <div id="chatbot-body"></div>
+  <input type="text" id="chatbot-input" placeholder="Ask me about skills, experience..."/>
+</div>
+
+<script>
+// Animate skill bars
+document.querySelectorAll(".skill-fill").forEach(bar => {
+  const width = bar.getAttribute("data-width");
+  setTimeout(()=>{bar.style.width = width;},500);
+});
+
+// Chatbot toggle
+document.getElementById('chatbot-header').addEventListener('click',()=>{document.getElementById('chatbot-body').classList.toggle('hidden');});
+
+// GPT Chatbot
+const chatInput = document.getElementById("chatbot-input");
+const chatBody = document.getElementById("chatbot-body");
+
+chatInput.addEventListener("keypress", async function(e) {
+  if(e.key === "Enter" && chatInput.value.trim() !== "") {
+    const userMessage = chatInput.value;
+    const userDiv = document.createElement("div");
+    userDiv.classList.add("user-message");
+    userDiv.textContent = userMessage;
+    chatBody.appendChild(userDiv);
+    chatInput.value = "";
+
+    const botDiv = document.createElement("div");
+    botDiv.classList.add("bot-message");
+    botDiv.textContent = "Typing...";
+    chatBody.appendChild(botDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage })
+      });
+      const data = await response.json();
+      botDiv.textContent = data.reply;
+
+      // Voice output
+      const utter = new SpeechSynthesisUtterance(data.reply);
+      utter.lang = 'en-US';
+      speechSynthesis.speak(utter);
+
+      chatBody.scrollTop = chatBody.scrollHeight;
+    } catch (err) {
+      botDiv.textContent = "Error: Unable to fetch GPT response.";
+    }
+  }
+});
+</script>
+
+</body>
+</html>
