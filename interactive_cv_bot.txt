@@ -1,0 +1,146 @@
+Zip file contents ready for GitHub deployment:
+
+Folder: my-cv/
+
+my-cv/
+├── index.html
+├── style.css
+├── script.js
+└── api/
+    └── chat.js
+
+---
+
+index.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abdul Mannan CV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Abdul Mannan</h1>
+    <p>Welcome to my interactive CV!</p>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>Web Developer | Cybersecurity Enthusiast | 8+ Years Experience</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>React, Node.js</li>
+      <li>Cloud Security (AWS/Azure)</li>
+      <li>Penetration Testing / Ethical Hacking</li>
+      <li>Network Security</li>
+    </ul>
+  </section>
+
+  <section id="chat-container">
+    <h2>Ask Me Anything!</h2>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type your question..." />
+    <button id="send-btn">Send</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Abdul Mannan</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+---
+
+style.css:
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+  background: #f9f9f9;
+}
+header, section, footer {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#chat-container {
+  width: 400px;
+}
+#chat-box {
+  height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f4f4f4;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+#user-input {
+  width: 300px;
+  padding: 5px;
+}
+#send-btn {
+  padding: 5px 10px;
+}
+
+---
+
+script.js:
+const chatBox = document.getElementById("chat-box");
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
+
+sendBtn.addEventListener("click", async () => {
+  const question = userInput.value.trim();
+  if (!question) return;
+
+  chatBox.innerHTML += `<div><strong>You:</strong> ${question}</div>`;
+  userInput.value = "";
+
+  try {
+    const res = await fetch("https://your-vercel-url.vercel.app/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    const data = await res.json();
+    chatBox.innerHTML += `<div><strong>Bot:</strong> ${data.answer}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  } catch (err) {
+    chatBox.innerHTML += `<div><strong>Bot:</strong> Error connecting to server.</div>`;
+  }
+});
+
+---
+
+api/chat.js:
+import OpenAI from "openai";
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    const { question } = req.body;
+    try {
+      const response = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [{ role: "user", content: question }],
+      });
+      res.status(200).json({ answer: response.choices[0].message.content });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
+  }
+}
